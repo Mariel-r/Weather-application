@@ -14,13 +14,6 @@ p {
   padding-bottom: 15px;
 }
 
-small {
-  display: block;
-  margin: 0 auto;
-  font-size: 80%;
-  font-weight: 400;
-}
-
 .weather-app-wrapper {
   display: block;
   margin: 40px auto;
@@ -34,13 +27,51 @@ small {
   border-radius: 50%;
 }
 
+.city {
+  margin-top: 20px;
+  margin-left: 13px;
+  text-align: center;
+  border: solid 1px #ced4da;
+  border-radius: 100px;
+  width: 20%;
+}
+
+.information {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-right: 43px;
+  text-align: center;
+  border: solid 1px #ced4da;
+  border-radius: 60px;
+  position: relative;
+  bottom: 140px;
+  left: 30px;
+  max-width: 420px;
+  height: 120px;
+}
+.cloud {
+  position: relative;
+  top: 25px;
+  left: 2px;
+  width: 20px;
+}
+
+.units {
+  font-size: 10px;
+  display: block;
+  position: relative;
+  top: -79px;
+  right: 3px;
+}
+
 .forecast {
   font-weight: bold;
   text-align: center;
   color: rgb(90, 105, 135);
   height: 80px;
   opacity: 0.8;
-  padding-top: 30px;
+  position: relative;
+  top: -120px;
 }
 
 #currentButton {
@@ -51,4 +82,34 @@ small {
   border-radius: 5px;
   position: relative;
   top: 2px;
+}
+
+#city-name {
+  color: rgb(90, 105, 135);
+  font-weight: bold;
+  font-size: 18px;
+  padding: 27px 0 0 0;
+  margin: 0;
+}
+#temperature {
+  color: rgb(90, 105, 135);
+  font-weight: bold;
+  font-size: 70px;
+  position: relative;
+  right: 60px;
+}
+
+#celsius-link {
+  text-decoration: none;
+}
+#fahrenheit-link {
+  text-decoration: none;
+}
+
+#sourse-code {
+  margin-right: 390px;
+  font-size: 80%;
+  font-weight: 400;
+  position: relative;
+  top: -50px;
 }
