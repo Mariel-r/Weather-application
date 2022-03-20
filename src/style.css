@@ -1,0 +1,44 @@
+ul {
+  list-style: none;
+  line-height: 18px;
+  font-size: 12px;
+  text-align: left;
+  padding: 30px 0 0 0;
+  position: relative;
+  right: 25px;
+  opacity: 0.6;
+}
+
+p {
+  font-size: 12px;
+  padding-bottom: 15px;
+}
+
+small {
+  display: block;
+  margin: 0 auto;
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.weather-app-wrapper {
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+  max-width: 600px;
+}
+
+.input-group {
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+#currentButton {
+  background-color: #5c636a;
+  color: #fff;
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  top: 2px;
+}
