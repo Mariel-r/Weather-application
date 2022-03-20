@@ -29,8 +29,18 @@ small {
 }
 
 .input-group {
+  max-width: 575px;
   margin: 0 auto;
   border-radius: 50%;
+}
+
+.forecast {
+  font-weight: bold;
+  text-align: center;
+  color: rgb(90, 105, 135);
+  height: 80px;
+  opacity: 0.8;
+  padding-top: 30px;
 }
 
 #currentButton {
