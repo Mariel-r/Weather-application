@@ -19,9 +19,11 @@ currentDate.innerHTML = `${day} ${hour}:${minutes}`;
 
 function displayWeatherCondition(response) {
   document.querySelector("#city-name").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+
+  celsiusTemperature = response.data.main.temp;
+
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -57,7 +59,28 @@ function searchLocation(position) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
+function setFahrenheitTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function setCelsiusTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+  tempElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let searchCityForm = document.querySelector("#search-city");
 searchCityForm.addEventListener("click", submitCity);
+
+let fahrenheitTemp = document.querySelector("#fahrenheit-link");
+fahrenheitTemp.addEventListener("click", setFahrenheitTemp);
+
+let celsiusTemp = document.querySelector("#celsius-link");
+celsiusTemp.addEventListener("click", setCelsiusTemp);
 
 searchCity("Rome");
