@@ -138,4 +138,4 @@ searchCityForm.addEventListener("click", submitCity);
 let celsiusTemp = document.querySelector("#celsius-link");
 celsiusTemp.addEventListener("click", setCelsiusTemp);
 
-searchCity("Rome");
+searchCity("Tuscany");
