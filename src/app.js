@@ -17,6 +17,40 @@ let day = days[now.getDay()];
 let currentDate = document.querySelector("#current-time");
 currentDate.innerHTML = `${day} ${hour}:${minutes}`;
 
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col">
+        <div class="p-3 border bg-light">
+          ${day}
+          <br />
+          <img src="images/partly_cloudy.png" alt="partly_cloudy" />
+          <br />
+          9°/-2°
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "f340eddba0a7afe617246ae948554e4e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeatherCondition(response) {
   document.querySelector("#city-name").innerHTML = response.data.name;
 
@@ -39,6 +73,8 @@ function displayWeatherCondition(response) {
   );
 
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {

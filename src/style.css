@@ -58,7 +58,7 @@ p {
   right: 3px;
 }
 
-.forecast {
+#forecast {
   font-weight: bold;
   text-align: center;
   color: rgb(90, 105, 135);
