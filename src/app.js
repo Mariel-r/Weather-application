@@ -17,27 +17,43 @@ let day = days[now.getDay()];
 let currentDate = document.querySelector("#current-time");
 currentDate.innerHTML = `${day} ${hour}:${minutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
   console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-
   let forecastHTML = `<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col">
         <div class="p-3 border bg-light">
-          ${day}
+        ${formatDay(forecastDay.dt)}
           <br />
-          <img src="images/partly_cloudy.png" alt="partly_cloudy" />
+          <img 
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42" />
           <br />
-          9°/-2°
+          ${Math.round(forecastDay.temp.max)}°/${Math.round(
+          forecastDay.temp.min
+        )}°
         </div>
       </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
